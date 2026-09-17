@@ -165,8 +165,15 @@ public class KnowledgeBase {
         intents.add(new Intent("help",
                 Arrays.asList("help", "options", "what can i ask", "commands", "menu", "assistance"),
                 Arrays.asList(
-                        "You can ask me about our working hours, live weather, current time/day/year, who created me, or simply say hello!",
-                        "Need assistance? Try asking: 'What are your hours?', 'What is the weather?', 'What time is it?', 'What day is today?', or 'Who created you?'"
+                        "You can ask me about our working hours, live weather, current time/day/year, do math calculations (e.g. 'calc 25 * 4'), who created me, or simply say hello!",
+                        "Need assistance? Try asking: 'What are your hours?', 'What is the weather?', 'Calculate 15% of 200', 'What time is it?', or 'Who created you?'"
+                )));
+
+        intents.add(new Intent("calculator",
+                Arrays.asList("calculator", "math", "how to calculate", "math help", "math commands"),
+                Arrays.asList(
+                        "I can perform calculations! Try: 'calc 25 * 4', '15% of 200', 'sqrt(144)', '2^8', '(10 + 5) / 3', or simply '45 + 55'.",
+                        "Need math assistance? You can enter expressions like '100 / 4', 'calculate 50 * 3', '15 percent of 80', or 'square root of 144'."
                 )));
 
         intents.add(new Intent("time",

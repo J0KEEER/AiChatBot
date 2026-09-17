@@ -48,7 +48,12 @@ public class ChatEngine {
             return multiDynamic;
         }
 
-        // 2. Multi-part intent queries (e.g. "what are your hours and who made you")
+        // 2. Standalone calculation query (e.g. "25 + 75", "what is 15 * 4", "calc 100 / 4", "15% of 200", "sqrt(144)")
+        if (CalculatorService.isCalculationQuery(userInput, cleaned)) {
+            return CalculatorService.process(userInput);
+        }
+
+        // 3. Multi-part intent queries (e.g. "what are your hours and who made you")
         String multiIntent = handleMultiIntentQuery(userInput);
         if (multiIntent != null) {
             return multiIntent;
@@ -168,28 +173,44 @@ public class ChatEngine {
             return null;
         }
 
-        List<Intent> matchedIntents = new ArrayList<>();
+        List<String> results = new ArrayList<>();
         Set<String> seenTags = new HashSet<>();
 
         for (String clause : clauses) {
             String trimmed = clause.trim();
-            if (trimmed.length() < 3) continue;
+            if (trimmed.length() < 2) continue;
+
+            // 1. Check if clause is a calculation query
+            String cleanedClause = TextPreprocessor.cleanText(trimmed);
+            if (CalculatorService.isCalculationQuery(trimmed, cleanedClause)) {
+                if (!seenTags.contains("calculation")) {
+                    seenTags.add("calculation");
+                    String calcResult = CalculatorService.process(trimmed).replace("🧮 ", "");
+                    if (!calcResult.startsWith("Calculation:")) {
+                        calcResult = "Calculation: " + calcResult;
+                    }
+                    results.add("• " + calcResult);
+                }
+                continue;
+            }
+
+            // 2. Match standard conversational intent
             List<String> tokens = TextPreprocessor.tokenize(trimmed);
             Intent match = matchIntent(trimmed, tokens);
             if (match != null && !seenTags.contains(match.getTag())) {
                 seenTags.add(match.getTag());
-                matchedIntents.add(match);
+                String tag = match.getTag();
+                String label = tag.substring(0, 1).toUpperCase() + tag.substring(1).replace("_", " ");
+                List<String> resps = match.getResponses();
+                String reply = resps.get(random.nextInt(resps.size()));
+                results.add("• " + label + ": " + reply);
             }
         }
 
-        if (matchedIntents.size() >= 2) {
+        if (results.size() >= 2) {
             StringBuilder sb = new StringBuilder("Here is what you wanted to know:\n");
-            for (Intent intent : matchedIntents) {
-                String tag = intent.getTag();
-                String label = tag.substring(0, 1).toUpperCase() + tag.substring(1).replace("_", " ");
-                List<String> resps = intent.getResponses();
-                String reply = resps.get(random.nextInt(resps.size()));
-                sb.append("• ").append(label).append(": ").append(reply).append("\n\n");
+            for (String item : results) {
+                sb.append(item).append("\n\n");
             }
             return sb.toString().trim();
         }
