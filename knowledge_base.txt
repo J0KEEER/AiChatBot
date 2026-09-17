@@ -1,0 +1,20 @@
+# AI Chatbot Knowledge Base
+# Format: tag|pattern1;pattern2;pattern3|response1;response2;response3
+
+greeting|hi;hello;hey;good morning;good evening;greetings;hiya|Hello! How can I help you today?;Hi there! What can I do for you today?;Greetings! How may I assist you?
+how_are_you|how are you;how are you doing;how are things;hows it going;how is it going;how do you do;how are you feeling;whats up;hows life|I'm doing great, thank you for asking! How are you doing today?;I'm feeling fantastic and ready to help! How can I assist you?;All systems running smoothly and feeling great! How is your day going?
+goodbye|bye;goodbye;see you;exit;quit;cya;farewell|Goodbye! Have a wonderful day ahead.;See you soon! Feel free to return if you have any questions.;Take care! Have a great day.
+thanks|thanks;thank you;appreciate it;much appreciated;thanks a lot;thx|You're very welcome!;Glad I could help!;Anytime! Let me know if you need anything else.
+about|who are you;what are you;your name;tell me about yourself;introduce yourself;about|I am an intelligent AI FAQ Chatbot built in Java using NLP text processing and rule-based intent matching.;I am a virtual desktop assistant designed to answer questions, guide you with information, and help with common queries.
+creator|who made you;who created you;who is your developer;who is the author;creator;developer|I was created by Mridul as a Java programming project featuring rule-based NLP and Swing GUI.;I was built by Mridul in Java to demonstrate NLP-based text processing and interactive chatbot design.
+user_identity|who am i;who i am;my identity;do you know me|You are the user, and I am here to assist you with any questions or tasks you have!;You are my user! Feel free to ask me anything about our services, hours, or general questions.
+hours|hours;what are your hours;timing;working hours;open hours;when are you open;office hours;schedule|Our operating hours are Monday through Saturday, 9:00 AM to 6:00 PM.;We are available Monday to Saturday, between 9:00 AM and 6:00 PM.
+services|services;what are your services;what do you do;what can you help with;capabilities;features|I can answer frequently asked questions, provide support assistance, guide you with service schedules, and chat in real-time.;My capabilities include interactive conversation, text preprocessing, keyword matching, and answering common queries.
+contact|contact;how to contact;email;phone;reach you;call;support email;helpline;contact support|You can reach out via email at support@assistant.ai or submit your inquiry through the help portal.;Feel free to contact support at support@assistant.ai for any assistance.
+help|help;options;what can i ask;commands;menu;assistance|You can ask me about our working hours, live weather, current time/day/year, who created me, or simply say hello!;Try asking: 'What are your hours?', 'What is the weather?', 'What time is it?', 'What day is today?', or 'Who created you?'
+location|where are you located;office location;address;headquarters;location|I run locally on your system as a Java desktop assistant and can be accessed anywhere!
+time|time;what time is it;current time;what hour is it;what is the time;time now;tell me the time;what hour;current hour;clock|[DYNAMIC_TIME]
+date|date;what date is it;what is the date;todays date;current date;what is todays date|[DYNAMIC_DATE]
+day|day;what day is it;what day is today;current day;which day is today;what day of week;what day of the week|[DYNAMIC_DAY]
+year|year;what year is it;current year;what is the year;which year;what year are we in|[DYNAMIC_YEAR]
+weather|weather;what is the weather;how is the weather;weather today;current weather;temperature;weather forecast;is it raining;how hot is it;how cold is it|[DYNAMIC_WEATHER]
