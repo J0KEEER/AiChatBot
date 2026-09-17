@@ -318,11 +318,9 @@ java -cp bin ChatEngineTest
 
 Screenshots of the Chatbot in action can be found in the [`screenshots/`](screenshots/) directory:
 
-| Swing Desktop GUI | Terminal CLI Interface |
-| :---: | :---: |
-| *(Add your screenshot to `screenshots/gui_demo.png`)* | *(Add your screenshot to `screenshots/cli_demo.png`)* |
-
-> **Tip for Contributors:** Place `.png` or `.gif` demo captures in the [`screenshots/`](screenshots/) folder and reference them above to showcase interface highlights on GitHub and LinkedIn.
+| Swing Desktop GUI |
+| :---: |
+| *(Add your screenshot to `screenshots/Screenshot 2026-09-17 at 12.25.26 PM.png`) 
 
 ---
 
