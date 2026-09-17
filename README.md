@@ -320,7 +320,7 @@ Screenshots of the Chatbot in action can be found in the [`screenshots/`](screen
 
 | Swing Desktop GUI |
 | :---: |
-| *(Add your screenshot to `screenshots/Screenshot 2026-09-17 at 12.25.26 PM.png`) 
+| (`screenshots/Screenshot 2026-09-17 at 12.25.26 PM.png`) 
 
 ---
 
